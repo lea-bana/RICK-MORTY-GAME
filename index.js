@@ -27,4 +27,9 @@ function randomCloud(clouds) {
 function showHead() {
   const time = randomTime(600, 1000);
   const cloud = randomCloud(clouds);
+  cloud.classlist.add("up");
+  setTimeout(() => {
+    if (!timeUp) showHead();
+    cloud.classlist.remove("up");
+  }, time);
 }
