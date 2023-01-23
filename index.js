@@ -27,9 +27,19 @@ function randomCloud(clouds) {
 function showHead() {
   const time = randomTime(600, 1000);
   const cloud = randomCloud(clouds);
-  cloud.classlist.add("up");
+  cloud.classList.add("up");
   setTimeout(() => {
     if (!timeUp) showHead();
-    cloud.classlist.remove("up");
+    cloud.classList.remove("up");
   }, time);
 }
+
+function playerScore(event) {
+  if (!event.isTrusted) return;
+  score++;
+  this.classList.remove("up");
+  scoreBoard.textContent = score;
+}
+
+heads.forEach((head) => head.addEventListener("click", playerScore));
+showHead();
