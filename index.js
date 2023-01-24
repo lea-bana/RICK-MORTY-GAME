@@ -136,9 +136,19 @@ function typeWriter3() {
     setTimeout(typeWriter3, speed);
   }
 }
+function hideLevels() {
+  for (let i = 1; i <= 3; i++) {
+    document.getElementById("demo" + i).addEventListener("click", () => {
+      document.getElementById("demo1").style.display = "none";
+      document.getElementById("demo2").style.display = "none";
+      document.getElementById("demo3").style.display = "none";
+    });
+  }
+}
 
 document.getElementById("morty-play").addEventListener("click", () => {
   typeWriter1();
   typeWriter2();
   typeWriter3();
+  hideLevels();
 });
