@@ -41,5 +41,18 @@ function playerScore(event) {
   scoreBoard.textContent = score;
 }
 
+//
 heads.forEach((head) => head.addEventListener("click", playerScore));
-showHead();
+
+function startGame() {
+  scoreBoard.textContent = 0;
+  score = 0;
+  timeUp = false;
+  showHead();
+  setTimeout(() => {
+    timeUp = true;
+    setTimeout(() => {
+      scoreBoard.textContent = "end";
+    }, 2000);
+  }, 10000);
+}
