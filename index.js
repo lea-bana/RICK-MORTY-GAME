@@ -24,16 +24,36 @@ function randomCloud(clouds) {
   return cloudSelect;
 }
 
-function showHead() {
+function showHead1() {
   const time = randomTime(600, 1000);
   const cloud = randomCloud(clouds);
   cloud.classList.add("up");
   setTimeout(() => {
-    if (!timeUp) showHead();
+    if (!timeUp) showHead1();
     cloud.classList.remove("up");
   }, time);
 }
 
+function showHead2() {
+  const time = randomTime(500, 800);
+  const cloud = randomCloud(clouds);
+  cloud.classList.add("up");
+  setTimeout(() => {
+    if (!timeUp) showHead2();
+    cloud.classList.remove("up");
+  }, time);
+}
+function showHead3() {
+  const time = randomTime(250, 500);
+  const cloud = randomCloud(clouds);
+  cloud.classList.add("up");
+  setTimeout(() => {
+    if (!timeUp) showHead3();
+    cloud.classList.remove("up");
+  }, time);
+}
+
+//
 function playerScore(event) {
   if (!event.isTrusted) return;
   score++;
@@ -44,11 +64,38 @@ function playerScore(event) {
 //
 heads.forEach((head) => head.addEventListener("click", playerScore));
 
-function startGame() {
+//
+function startGame1() {
   scoreBoard.textContent = 0;
   score = 0;
   timeUp = false;
-  showHead();
+  showHead1();
+  setTimeout(() => {
+    timeUp = true;
+    setTimeout(() => {
+      scoreBoard.textContent = "end";
+    }, 2000);
+  }, 10000);
+}
+
+function startGame2() {
+  scoreBoard.textContent = 0;
+  score = 0;
+  timeUp = false;
+  showHead2();
+  setTimeout(() => {
+    timeUp = true;
+    setTimeout(() => {
+      scoreBoard.textContent = "end";
+    }, 2000);
+  }, 10000);
+}
+
+function startGame3() {
+  scoreBoard.textContent = 0;
+  score = 0;
+  timeUp = false;
+  showHead3();
   setTimeout(() => {
     timeUp = true;
     setTimeout(() => {
