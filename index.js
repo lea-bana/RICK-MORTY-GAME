@@ -151,4 +151,7 @@ document.getElementById("morty-play").addEventListener("click", () => {
   typeWriter2();
   typeWriter3();
   hideLevels();
+  if (timeUp === true) {
+    location.reload();
+  }
 });
